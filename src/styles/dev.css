@@ -30,12 +30,30 @@ body {
     /* color: rgba(15, 5, 24, 0.55); */
     color: #6b7280;
     font-weight: 500;
+    transition: all 0.2s;
     /* background-color: #EFF1F6; */
 
     background: hsla(223, 30%, 95%, 1);
     background: linear-gradient(180deg, hsla(223, 30%, 95%, 1) 0%, hsla(240, 50%, 99%, 1) 100%);
     background: -moz-linear-gradient(180deg, hsla(223, 30%, 95%, 1) 0%, hsla(240, 50%, 99%, 1) 100%);
     background: -webkit-linear-gradient(180deg, hsla(223, 30%, 95%, 1) 0%, hsla(240, 50%, 99%, 1) 100%);
+    overflow-x: hidden;
+    width: 100vw;
+}
+
+/**
+ * hide scrollbars
+ */
+*::-webkit-scrollbar {
+    display: none;
+    width: 0 !important;
+}
+
+body {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
 }
 
 p {
@@ -141,4 +159,243 @@ ul {
 
 ol {
     list-style: decimal;
+}
+
+.code-card {
+    background-color: #1E1E1E;
+    overflow: hidden;
+}
+
+.code-card .ant-card-body {
+    padding: 0;
+}
+
+.tabset .tabset-button {
+    border: 1px solid #cccccc;
+    color: #cccccc;
+    @apply rounded-full px-4 py-1;
+}
+
+.tabset .tabset-button:hover {
+    color: white;
+
+}
+
+.tabset .tabset-button.tabset-button-active {
+    color: black;
+    border-color: white;
+    background-color: white;
+}
+
+.custom-search .ant-input-group-addon {
+    padding: 0;
+}
+
+.custom-search .ant-input {
+    padding: 4px;
+}
+
+.custom-search .ant-input,
+.custom-search .ant-input-group-addon {
+    background-color: #E6E7EB;
+    border-color: #E6E7EB;
+    border-radius: 2px;
+}
+
+.secondary-nav a {
+    color: #aaaaaa;
+    font-size: 14px;
+}
+
+.secondary-nav .active-sec-nav,
+.secondary-nav a:hover {
+    color: black;
+}
+
+.blur-effect {
+    position: relative;
+    @apply rounded-lg;
+}
+
+.blur-effect:hover:before {
+    transform: translate3d(0px, 0px, 0) scale(1.05);
+    transition: transform 300ms;
+    /* Updated: Specify the property to transition */
+}
+
+.blur-effect:before {
+    transition: 0.3s;
+    /* Move the opacity transition before the transform transition */
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(275deg, #429342 0%, #e4752e 100%);
+    transform: translate3d(0px, 0px, 0) scale(1);
+    filter: blur(20px);
+    border-radius: inherit;
+}
+
+.blur-effect::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    border-radius: inherit;
+}
+
+.box-blur {
+    position: relative;
+    @apply rounded-lg z-10;
+}
+
+.box-blur:before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: blur(36px);
+    opacity: var(0.7);
+    transition: opacity 0.3s;
+    border-radius: inherit;
+}
+
+.box-blur1:before {
+    background: linear-gradient(90deg, #429342 0%, #7fe27f 100%);
+    transform: translate3d(0px, -20px, 0) scale(1);
+}
+
+.box-blur2:before {
+    background: linear-gradient(90deg, #E89786 0%, #F1D199 100%);
+    transform: translate3d(0px, -20px, 0) scale(1);
+}
+
+.box-blur3:before {
+    background: linear-gradient(90deg, #956ADB 0%, #956ADB 100%);
+    transform: translate3d(0px, -20px, 0) scale(1);
+}
+
+.box-blur4:before {
+    background: linear-gradient(90deg, #429342 0%, #e4752e 100%);
+    transform: translate3d(0px, 0px, 100) scale(1);
+}
+
+/* 
+* Prevents issues when the parent creates a 
+* stacking context. (For example, using the transform
+* property )
+*/
+.box-blur::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    border-radius: inherit;
+}
+
+.text-white {
+    color: white !important;
+}
+
+.small-card .ant-card-body {
+    padding: 0;
+}
+
+.small-card .ant-card-body .card-content {
+    padding: 24px;
+}
+
+code {
+    background-color: black;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 4px;
+}
+
+.animated-logos {
+    opacity: .5;
+}
+
+.animated-logos:hover {
+    opacity: 1;
+}
+
+.animated-logos img {
+    cursor: pointer;
+    @apply my-2;
+}
+
+.animated-logos img:hover {
+    border: 1px solid #0F0518;
+    @apply rounded-lg;
+}
+
+.heroslider {
+    min-height: 65vh;
+    @apply relative;
+    background-image: url(/imgs/hero-background.svg);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.heroslider .icons-section {
+    @apply m-auto absolute top-0 bottom-0 w-full;
+    height: 13.4rem;
+    z-index: 0;
+}
+
+.heroslider .herocontent {
+    z-index: 9;
+    min-height: 65vh;
+}
+
+.bg-wasmer-dark {
+    background-color: #0F0518;
+    color: white;
+}
+
+.bg-wasmer-dark .ant-select-arrow,
+.bg-wasmer-dark .ant-select-selector {
+    background-color: #1e1e1e !important;
+    border: 1px solid transparent !important;
+    color: white !important;
+}
+
+.installsec {
+    background-image: url(/imgs/editor-header.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cta {
+    line-height: 3.4rem;
+}
+
+.footer  li {
+    @apply mb-2;
+}
+
+.footer  a {
+    color: #0F0518;
+}
+
+
+.footer  a:hover {
+    color: black;
 }

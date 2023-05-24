@@ -48,7 +48,7 @@ const Home: NextPage = () => {
                       }
                       extra={false}
                       content={
-                        <div className="largecard-content">
+                        <div className="card-content">
                           <p className="text-gray-500">
                             SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine
                           </p>
@@ -88,7 +88,7 @@ const Home: NextPage = () => {
                       extra={true}
                       extraHTML={<Icon.ArrowUpRight size={18} className="font-semibold bg-transparent" />}
                       content={
-                        <div className="largecard-content">
+                        <div className="card-content">
                           <p className="text-gray-500">
                             SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine
                           </p>
@@ -143,7 +143,7 @@ const Home: NextPage = () => {
                       }
                       extra={false}
                       content={
-                        <div className="largecard-content">
+                        <div className="card-content">
                           <p className="text-gray-500">
                             SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine
                           </p>
@@ -183,7 +183,7 @@ const Home: NextPage = () => {
                       extra={true}
                       extraHTML={<Icon.ArrowUpRight size={18} className="font-semibold bg-transparent" />}
                       content={
-                        <div className="largecard-content">
+                        <div className="card-content">
                           <p className="text-gray-500">
                             SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine
                           </p>
@@ -235,7 +235,7 @@ const Home: NextPage = () => {
                 <div className="col-span-12 md:col-span-4">
                   <SmallCard
                     content={
-                      <div className="largecard-content">
+                      <div className="card-content">
                         <div className="flex gap-4 items-center">
                           <img src="/imgs/python-logo.png" alt="python logo" width="50px" />
                           <span className="font-semibold text-lg">Python</span>
@@ -247,7 +247,7 @@ const Home: NextPage = () => {
                 <div className="col-span-12 md:col-span-4">
                   <SmallCard
                     content={
-                      <div className="largecard-content">
+                      <div className="card-content">
                         <div className="flex gap-4 items-center">
                           <img src="/imgs/python-logo.png" alt="python logo" width="50px" />
                           <span className="font-semibold text-lg">Python</span>
@@ -260,7 +260,7 @@ const Home: NextPage = () => {
                   <SmallCard
                     className="active-card"
                     content={
-                      <div className="largecard-content">
+                      <div className="card-content">
                         <div className="flex gap-4 items-center">
                           <img src="/imgs/python-logo.png" alt="python logo" width="50px" />
                           <span className="font-semibold text-lg">Python</span>

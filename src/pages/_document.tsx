@@ -18,8 +18,8 @@ class MyDocument extends Document {
                 <body className="disable-scrollbars">
                     <Main />
                     <NextScript />
-                    <script src="/js/plugins.js" />
-                    <script src="/js/main.js" />
+                    <script async src="/js/plugins.js" />
+                    {/* <script async src="/js/main.js" /> */}
                 </body>
             </Html>
         );

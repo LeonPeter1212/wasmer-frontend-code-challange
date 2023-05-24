@@ -10,7 +10,7 @@ const SmallCard: React.FC<SmallCardProps> = ({ content = null, className = null 
     return (
         <Card
             title={null}
-            className={`card ${className ? className : ''}`}
+            className={`card small-card ${className ? className : ''}`}
         >
             {content}
         </Card>

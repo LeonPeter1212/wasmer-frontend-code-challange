@@ -10,7 +10,7 @@ interface CustomHeaderProps {
   level?: Number;
 }
 
-const CustomHeader: React.FC<CustomHeaderProps> = ({ title = 'Title', subtitle = null, icon = true, level = 0 }) => {
+const CustomHeader: React.FC<CustomHeaderProps> = ({ title = 'Title', subtitle = null, icon = true, level = 2 }) => {
   return (
     <div className='mx-auto'>
       <Divider className="m-0" />
@@ -22,8 +22,9 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({ title = 'Title', subtitle =
           </div> : null}
 
           <div className="title-body">
-            <Title level={level} className={subtitle === null ? "mb-0" : "mb-2"}>{title}</Title>
-            {subtitle === null ? <Text className="text-purple text-lg font-medium">{subtitle}</Text> : null}
+            <Title className={subtitle === null ? "mb-0" : "mb-2"}>{title}</Title>
+            {/* {subtitle === null ? <Text className="text-purple text-lg font-medium">{subtitle}</Text> : null} */}
+            <Text className="text-purple text-lg font-medium">{subtitle}</Text>
           </div>
         </div>
 
