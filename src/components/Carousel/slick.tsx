@@ -1,37 +1,118 @@
 import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import { motion, useAnimate, stagger, usePresence, AnimatePresence } from "framer-motion";
+import { Typography } from 'antd';
+
+const {Text} = Typography;
 
 const imgs: string[] = [
-    "/imgs/logos/logo1.svg",
-    "/imgs/logos/logo2.svg",
-    "/imgs/logos/logo3.svg",
-    "/imgs/logos/logo4.svg",
-    "/imgs/logos/logo5.svg",
-    "/imgs/logos/logo6.svg",
-    "/imgs/logos/logo7.svg",
-    "/imgs/logos/logo8.svg",
-    "/imgs/logos/logo9.svg",
-    "/imgs/logos/logo10.svg",
-    "/imgs/logos/logo11.svg",
-    "/imgs/logos/logo12.svg",
-    "/imgs/logos/logo13.svg",
-    "/imgs/logos/logo14.svg",
-    "/imgs/logos/logo15.svg",
-    "/imgs/logos/logo16.svg",
-    "/imgs/logos/logo17.svg",
-    "/imgs/logos/logo18.svg",
-    "/imgs/logos/logo19.svg",
-    "/imgs/logos/logo20.svg",
-    "/imgs/logos/logo21.svg",
-    "/imgs/logos/logo22.svg",
-    "/imgs/logos/logo23.svg",
-    "/imgs/logos/logo24.svg",
-    "/imgs/logos/logo25.svg",
-    "/imgs/logos/logo26.svg",
+    {
+        label: "SpiderMonkey",
+        value: "/imgs/logos/logo1.svg"
+    },
+    {
+        label: "Ruby",
+        value: "/imgs/logos/logo2.svg"
+    },
+    {
+        label: "sqlite",
+        value: "/imgs/logos/logo3.svg"
+    },
+    {
+        label: "wordpress",
+        value: "/imgs/logos/logo4.svg"
+    },
+    {
+        label: "python",
+        value: "/imgs/logos/logo5.svg"
+    },
+    {
+        label: "bash",
+        value: "/imgs/logos/logo6.svg"
+    },
+    // {
+    //     label: null,
+    //     value: "/imgs/logos/logo7.svg"
+    // },
+    // {
+    //     label: null,
+    //     value: "/imgs/logos/logo8.svg"
+    // },
+    // {
+    //     label: null,
+    //     value: "/imgs/logos/logo9.svg"
+    // },
+    // {
+    //     label: null,
+    //     value: "/imgs/logos/logo10.svg"
+    // },
+    {
+        label: "namespace",
+        value: "/imgs/logos/logo11.svg"
+    },
+    {
+        label: "Tantivy",
+        value: "/imgs/logos/logo12.svg"
+    },
+    {
+        label: "Javascript",
+        value: "/imgs/logos/logo13.svg"
+    },
+    {
+        label: "PHP",
+        value: "/imgs/logos/logo14.svg"
+    },
+    {
+        label: "Lua",
+        value: "/imgs/logos/logo15.svg"
+    },
+    {
+        label: "Go",
+        value: "/imgs/logos/logo16.svg"
+    },
+    {
+        label: "Docker",
+        value: "/imgs/logos/logo17.svg"
+    },
+    {
+        label: "Safari",
+        value: "/imgs/logos/logo18.svg"
+    },
+    {
+        label: "Chrome",
+        value: "/imgs/logos/logo19.svg"
+    },
+    {
+        label: "Rust",
+        value: "/imgs/logos/logo20.svg"
+    },
+    {
+        label: "Arc",
+        value: "/imgs/logos/logo21.svg"
+    },
+    {
+        label: "Opera",
+        value: "/imgs/logos/logo22.svg"
+    },
+    {
+        label: "C++",
+        value: "/imgs/logos/logo23.svg"
+    },
+    {
+        label: "Android",
+        value: "/imgs/logos/logo24.svg"
+    },
+    {
+        label: "C",
+        value: "/imgs/logos/logo25.svg"
+    },
+    {
+        label: "WASI",
+        value: "/imgs/logos/logo26.svg"
+    },
 ];
 
-const LogoSlider = ({ rtl = false, initialSlide = 0, speed = 1500 }) => {
+const LogoSlider = ({ rtl = false, initialSlide = 0, speed = 1500, labeled = false, slidesToShow = 5 }) => {
     const [scope, animate] = useAnimate()
     const [isPresent] = usePresence()
 
@@ -39,7 +120,7 @@ const LogoSlider = ({ rtl = false, initialSlide = 0, speed = 1500 }) => {
         dots: false,
         infinite: true,
         speed,
-        slidesToShow: 25, // Number of items to display at a time
+        slidesToShow, // Number of items to display at a time
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 0, // Speed at which the slider moves
@@ -47,7 +128,6 @@ const LogoSlider = ({ rtl = false, initialSlide = 0, speed = 1500 }) => {
         rtl,
         initialSlide,
     };
-
 
     useEffect(() => {
         if (isPresent) {
@@ -69,14 +149,23 @@ const LogoSlider = ({ rtl = false, initialSlide = 0, speed = 1500 }) => {
                 <div ref={scope}>
                     <Slider {...settings}>
                         {imgs.map((img, index) => (
-                            <motion.div key={index} className="animated-logos">
-                                <motion.img
-                                    src={img}
-                                    alt="Logo"
-                                    className="mx-auto"
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.9 }}
-                                />
+                            <motion.div key={index} className="animated-logos h-full w-full">
+                                <div className="shadow rounded-lg flex items-center justify-start flex-nowrap gap-0 mx-2 h-full w-full overflow-hidden">
+                                    <motion.img
+                                        src={img.value}
+                                        alt="Logo"
+                                        width={`50px`}
+                                        whileHover={{ scale: 1.1 }}
+                                    />
+                                    {!labeled ? null : <motion.div className='flex-1'>
+                                        <Text ellipsis={true} style={{
+                                            maxWidth: '70px',
+                                        }} className="text-center text-black text-sm m-0">
+                                            {img.label}
+                                        </Text>
+                                    </motion.div>}
+
+                                </div>
                             </motion.div>
                         ))}
                     </Slider>

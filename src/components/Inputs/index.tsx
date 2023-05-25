@@ -12,7 +12,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({
 	placeholder = "Input search text",
 }) => (
 
-	<div className="cursor-pointer custom-search">
+	<div className="cursor-pointer custom-search w-full px-4">
 		<Input
 			placeholder={placeholder}
 			addonBefore={

@@ -9,15 +9,28 @@ const LogoSlider = ({ rtl = false, initialSlide = 0, speed = 1500 }) => {
 
     const settings = {
         dots: false,
+        arrows: false,
         infinite: true,
-        speed,
+        speed: 500,
         slidesToShow: 3, // Number of items to display at a time
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 500, // Speed at which the slider moves
+        autoplaySpeed: 3000, // Speed at which the slider moves
         pauseOnHover: true,
-        rtl,
-        initialSlide,
+        responsive: [
+            {
+                breakpoint: 1152, // Adjust the breakpoint value based on your needs
+                settings: {
+                    slidesToShow: 2, // Number of items to show on screens with width <= 1024px
+                }
+            },
+            {
+                breakpoint: 600, // Adjust the breakpoint value based on your needs
+                settings: {
+                    slidesToShow: 1, // Number of items to show on screens with width <= 768px
+                }
+            }
+        ]
     };
 
     useEffect(() => {

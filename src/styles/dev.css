@@ -192,7 +192,7 @@ ol {
 }
 
 .custom-search .ant-input {
-    padding: 4px;
+    padding: 9px 16px;
 }
 
 .custom-search .ant-input,
@@ -254,6 +254,12 @@ ol {
 .box-blur {
     position: relative;
     @apply rounded-lg z-10;
+}
+
+.box-blur:hover:before {
+    transform: translate3d(0px, -20px, 0) scale(1.05);
+    transition: transform 400ms;
+    /* Updated: Specify the property to transition */
 }
 
 .box-blur:before {
@@ -327,21 +333,29 @@ code {
 }
 
 .animated-logos {
-    opacity: .5;
+    opacity: .6;
+    padding: 10px;
 }
 
 .animated-logos:hover {
+    padding: 10px;
+    transition: all 300ms;
     opacity: 1;
 }
 
-.animated-logos img {
-    cursor: pointer;
-    @apply my-2;
+.animated-logos .shadow {
+    border: 1px solid transparent;
 }
 
-.animated-logos img:hover {
+.animated-logos .shadow:hover {
     border: 1px solid #0F0518;
-    @apply rounded-lg;
+}
+
+.animated-logos img {
+    @apply my-2;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    /* width: 50px; */
 }
 
 .heroslider {
@@ -369,9 +383,13 @@ code {
     color: white;
 }
 
+.bg-wasmer-dark .ant-select-open .ant-select-selection-item {
+    color: white !important;
+}
+
 .bg-wasmer-dark .ant-select-arrow,
 .bg-wasmer-dark .ant-select-selector {
-    background-color: #1e1e1e !important;
+    background-color: transparent !important;
     border: 1px solid transparent !important;
     color: white !important;
 }
@@ -387,15 +405,35 @@ code {
     line-height: 3.4rem;
 }
 
-.footer  li {
+.footer li {
     @apply mb-2;
 }
 
-.footer  a {
-    color: #0F0518;
+.footer a {
+    @apply text-gray-500;
 }
 
 
-.footer  a:hover {
+.footer a:hover {
     color: black;
+}
+
+.font-22 {
+    font-size: 22px;
+}
+
+.font-48 {
+    font-size: 48px;
+}
+
+.font-52 {
+    font-size: 52px;
+}
+
+.text-green {
+    color: #02C372;
+}
+
+.header .menu-items>a {
+    /* @apply text-gray-500; */
 }

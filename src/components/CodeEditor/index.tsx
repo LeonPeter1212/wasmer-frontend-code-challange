@@ -68,25 +68,35 @@ func main() {
                 content={
                     <div className='bg-wasmer-dark'>
                         <div className="installsec p-4">
-                            <p className="px-2 mb-1 text-gray-400">install:</p>
-                            <code>$ curl https://get.wasmer.io -sSfL | sh</code>
+                            <p className="mb-1 text-gray-400">install:</p>
+                            <span className="text-white">$ curl https://get.wasmer.io -sSfL | sh</span>
                         </div>
 
-                        <Editor
+                        {/* <Editor
                             height="150px"
                             theme="vs-dark"
                             language={selectedLang}
                             value={editorValue}
                             onChange={handleEditorChange}
-                        />
+                        /> */}
 
-                        <div className="tabset flex gap-4 flex-nowrap overflow-x-scroll p-4">
-                            <button
-                                onClick={() => message.success("success")}
-                                className={`tabset-button`}
-                            >
-                                Run online
-                            </button>
+                        <div className="tabset flex flex-col gap-4 flex-nowrap overflow-x-scroll p-4">
+                            <div className="flex-item h-24">
+                                <p className="mb-1 text-gray-400">Run:</p>
+                                <span className="text-white"
+                                    dangerouslySetInnerHTML={{
+                                        __html: `$ wasmer run python/python -- -c <span class="text-green">"for x in range(5): print(f'{x} square: {x*x}')"</span>`
+                                    }} />
+                            </div>
+
+                            <div className="flex-item">
+                                <button
+                                    onClick={() => message.success("success")}
+                                    className={`tabset-button`}
+                                >
+                                    Run online
+                                </button>
+                            </div>
                         </div>
 
                         <div className="installsec flex gap-2 text-gray-400 items-center p-4">

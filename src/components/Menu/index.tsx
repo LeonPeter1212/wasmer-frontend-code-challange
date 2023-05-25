@@ -265,16 +265,16 @@ export const Header2 = ({ loggedIn = false }) => {
 
 export const Header = ({loggedIn = false}) => {
     return (
-        <header className="bg-white">
+        <header className="header bg-white">
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <div className="flex lg:flex-1">
+                <div className="flex">
                     <a href="#" className="-m-1.5 p-1.5">
                         <img className="h-8 w-auto" src="/imgs/logo.svg" alt="" />
                     </a>
                 </div>
                 <div className="flex lg:hidden">
                     <button type="button" className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-                        <Icon.Menu size={14} />
+                        <Icon.Menu size={20} />
                     </button>
                 </div>
 
@@ -282,27 +282,14 @@ export const Header = ({loggedIn = false}) => {
                     <SearchInput placeholder="Search packages, users or apps" />
                 </div>
 
-                <div className="hidden lg:flex lg:gap-x-12">
-                    <div className="relative">
-                        <button type="button" className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900" aria-expanded="false">
-                            Products
-                            <Icon.ChevronDown size={14} />
-                        </button>
-                        
-                        {/* <Flyout /> */}
-                    </div>
-
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Developers</a>
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Packages</a>
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Blog</a>
+                <div className="hidden lg:flex lg:flex-1 gap-8 justify-end px-8 menu-items">
+                    <a href="#" className="text-sm font-semibold leading-6 text-gray-500">Products</a>
+                    <a href="#" className="text-sm font-semibold leading-6 text-gray-500">Developers</a>
+                    <a href="#" className="text-sm font-semibold leading-6 text-gray-500">Packages</a>
+                    <a href="#" className="text-sm font-semibold leading-6 text-gray-500">Blog</a>
                 </div>
-                {loggedIn ? null : <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-2">
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                        <div className="flex items-center">
-                            Log in <Icon.ChevronRight className="ml-1" size={16} />
-                        </div>
-                    </a>
-                    <PrimaryButton text="Sign up" size={`middle`} />
+                {loggedIn ? null : <div className="hidden lg:flex lg:justify-end items-center gap-8">
+                    <PrimaryButton text="Sign up" size={`middle`} iconstat={false} />
                 </div>}
             </nav>
 
