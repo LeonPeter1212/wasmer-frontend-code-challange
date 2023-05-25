@@ -1,4 +1,5 @@
 import * as Icon from "react-feather";
+import Link from "next/link";
 import { PrimaryButton } from '../Buttons';
 import { SearchInput } from '../Inputs';
 
@@ -14,10 +15,10 @@ export const Flyout = () => {
                         </svg>
                     </div>
                     <div className="flex-auto">
-                        <a href="#" className="block font-semibold text-gray-900">
+                        <Link href="#" className="block font-semibold text-gray-900">
                             Analytics
                             <span className="absolute inset-0"></span>
-                        </a>
+                        </Link>
                         <p className="mt-1 text-gray-600">Get a better understanding of your traffic</p>
                     </div>
                 </div>
@@ -28,10 +29,10 @@ export const Flyout = () => {
                         </svg>
                     </div>
                     <div className="flex-auto">
-                        <a href="#" className="block font-semibold text-gray-900">
+                        <Link href="#" className="block font-semibold text-gray-900">
                             Engagement
                             <span className="absolute inset-0"></span>
-                        </a>
+                        </Link>
                         <p className="mt-1 text-gray-600">Speak directly to your customers</p>
                     </div>
                 </div>
@@ -42,10 +43,10 @@ export const Flyout = () => {
                         </svg>
                     </div>
                     <div className="flex-auto">
-                        <a href="#" className="block font-semibold text-gray-900">
+                        <Link href="#" className="block font-semibold text-gray-900">
                             Security
                             <span className="absolute inset-0"></span>
-                        </a>
+                        </Link>
                         <p className="mt-1 text-gray-600">Your customers’ data will be safe and secure</p>
                     </div>
                 </div>
@@ -56,10 +57,10 @@ export const Flyout = () => {
                         </svg>
                     </div>
                     <div className="flex-auto">
-                        <a href="#" className="block font-semibold text-gray-900">
+                        <Link href="#" className="block font-semibold text-gray-900">
                             Integrations
                             <span className="absolute inset-0"></span>
-                        </a>
+                        </Link>
                         <p className="mt-1 text-gray-600">Connect with third-party tools</p>
                     </div>
                 </div>
@@ -70,27 +71,27 @@ export const Flyout = () => {
                         </svg>
                     </div>
                     <div className="flex-auto">
-                        <a href="#" className="block font-semibold text-gray-900">
+                        <Link href="#" className="block font-semibold text-gray-900">
                             Automations
                             <span className="absolute inset-0"></span>
-                        </a>
+                        </Link>
                         <p className="mt-1 text-gray-600">Build strategic funnels that will convert</p>
                     </div>
                 </div>
             </div>
             <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                <a href="#" className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100">
+                <Link href="#" className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100">
                     <svg className="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                         <path fillRule="evenodd" d="M2 10a8 8 0 1116 0 8 8 0 01-16 0zm6.39-2.908a.75.75 0 01.766.027l3.5 2.25a.75.75 0 010 1.262l-3.5 2.25A.75.75 0 018 12.25v-4.5a.75.75 0 01.39-.658z" clipRule="evenodd" />
                     </svg>
                     Watch demo
-                </a>
-                <a href="#" className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100">
+                </Link>
+                <Link href="#" className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100">
                     <svg className="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                         <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012.43 8.326 13.019 13.019 0 012 5V3.5z" clipRule="evenodd" />
                     </svg>
                     Contact sales
-                </a>
+                </Link>
             </div>
         </div>
   )
@@ -102,9 +103,9 @@ export const FlyoutMobile = () => {
             <div className="fixed inset-0 z-10"></div>
             <div className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                 <div className="flex items-center justify-between">
-                    <a href="#" className="-m-1.5 p-1.5">
+                    <Link href="#" className="-m-1.5 p-1.5">
                         <img className="h-8 w-auto" src="/imgs/logo.svg" alt="" />
-                    </a>
+                    </Link>
                     <button type="button" className="-m-2.5 rounded-md p-2.5 text-gray-700">
                         <span className="sr-only">Close menu</span>
                         <Icon.X size={26} />
@@ -120,21 +121,21 @@ export const FlyoutMobile = () => {
                                     <Icon.ChevronDown size={22} />
                                 </button>
                                 <div className="mt-2 space-y-2" id="disclosure-1">
-                                    <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Analytics</a>
-                                    <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Engagement</a>
-                                    <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Security</a>
-                                    <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Integrations</a>
-                                    <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Automations</a>
-                                    <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Watch demo</a>
-                                    <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact sales</a>
+                                    <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Analytics</Link>
+                                    <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Engagement</Link>
+                                    <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Security</Link>
+                                    <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Integrations</Link>
+                                    <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Automations</Link>
+                                    <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Watch demo</Link>
+                                    <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact sales</Link>
                                 </div>
                             </div>
-                            <a href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
-                            <a href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
-                            <a href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
+                            <Link href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</Link>
+                            <Link href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</Link>
+                            <Link href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</Link>
                         </div>
                         <div className="py-6">
-                            <a href="#" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
+                            <Link href="#" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</Link>
                         </div>
                     </div>
                 </div>
@@ -147,9 +148,9 @@ export const Header2 = ({ loggedIn = false }) => {
         <header className="bg-white">
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex">
-                    <a href="#" className="-m-1.5 p-1.5">
+                    <Link href="#" className="-m-1.5 p-1.5">
                         <img className="h-8 w-auto" src="/imgs/logo.svg" alt="" />
-                    </a>
+                    </Link>
                 </div>
                 <div className="flex lg:hidden">
                     <button type="button" className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
@@ -183,19 +184,19 @@ export const Header2 = ({ loggedIn = false }) => {
                     From: "opacity-100 translate-y-0"
                     To: "opacity-0 translate-y-1"
         --> */}
-                        {/* <Flyout className={"absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5"} /> */}
+                        <Flyout />
                     </div>
 
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Developers</a>
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Packages</a>
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Blog</a>
+                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">Developers</Link>
+                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">Packages</Link>
+                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">Blog</Link>
                 </div>
                 {loggedIn ? null : <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-2">
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">
                         <div className="flex items-center">
                             Log in <Icon.ChevronRight className="ml-1" size={16} />
                         </div>
-                    </a>
+                    </Link>
                     <PrimaryButton text="Sign up" size={`middle`} />
                 </div>}
             </nav>
@@ -206,9 +207,9 @@ export const Header2 = ({ loggedIn = false }) => {
                 <div className="fixed inset-0 z-10"></div>
                 <div className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
-                        <a href="#" className="-m-1.5 p-1.5">
+                        <Link href="#" className="-m-1.5 p-1.5">
                             <img className="h-8 w-auto" src="/imgs/logo.svg" alt="" />
-                        </a>
+                        </Link>
                         <button type="button" className="-m-2.5 rounded-md p-2.5 text-gray-700">
                             <span className="sr-only">Close menu</span>
                             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -233,32 +234,26 @@ export const Header2 = ({ loggedIn = false }) => {
                                     </button>
                                     {/* <!-- 'Product' sub-menu, show/hide based on menu state. --> */}
                                     <div className="mt-2 space-y-2" id="disclosure-1">
-                                        <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Analytics</a>
-                                        <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Engagement</a>
-                                        <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Security</a>
-                                        <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Integrations</a>
-                                        <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Automations</a>
-                                        <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Watch demo</a>
-                                        <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact sales</a>
+                                        <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Analytics</Link>
+                                        <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Engagement</Link>
+                                        <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Security</Link>
+                                        <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Integrations</Link>
+                                        <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Automations</Link>
+                                        <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Watch demo</Link>
+                                        <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact sales</Link>
                                     </div>
                                 </div>
-                                <a href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
-                                <a href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
-                                <a href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
+                                <Link href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</Link>
+                                <Link href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</Link>
+                                <Link href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</Link>
                             </div>
                             <div className="py-6">
-                                <a href="#" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
+                                <Link href="#" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</Link>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            {/* <div className="flex justify-center items-center secondary-nav gap-4 pb-4">
-                <a href="#" className='active-sec-nav'>Run</a>
-                <a href="#">Publish</a>
-                <a href="#">Deploy</a>
-            </div> */}
         </header>
     )
 }
@@ -268,9 +263,9 @@ export const Header = ({loggedIn = false}) => {
         <header className="header bg-white">
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex">
-                    <a href="#" className="-m-1.5 p-1.5">
+                    <Link href="/" className="-m-1.5 p-1.5">
                         <img className="h-8 w-auto" src="/imgs/logo.svg" alt="" />
-                    </a>
+                    </Link>
                 </div>
                 <div className="flex lg:hidden">
                     <button type="button" className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
@@ -283,10 +278,10 @@ export const Header = ({loggedIn = false}) => {
                 </div>
 
                 <div className="hidden lg:flex lg:flex-1 gap-8 justify-end px-8 menu-items">
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-500">Products</a>
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-500">Developers</a>
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-500">Packages</a>
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-500">Blog</a>
+                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-500">Products</Link>
+                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-500">Developers</Link>
+                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-500">Packages</Link>
+                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-500">Blog</Link>
                 </div>
                 {loggedIn ? null : <div className="hidden lg:flex lg:justify-end items-center gap-8">
                     <PrimaryButton text="Sign up" size={`middle`} iconstat={false} />
@@ -294,7 +289,7 @@ export const Header = ({loggedIn = false}) => {
             </nav>
 
             {/* Mobile menu */}
-            <FlyoutMobile />
+            {/* <FlyoutMobile /> */}
         </header>
 
   )

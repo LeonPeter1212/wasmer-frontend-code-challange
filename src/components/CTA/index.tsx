@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typography } from 'antd';
+import Link from 'next/link';
 
 const { Title } = Typography;
 
@@ -31,7 +32,7 @@ export const MidCTA: React.FC<MidCTAProps> = ({ title = "Truly universal. Runs a
             <div className="flex">
                 <div className="flex-1 flex flex-col items-start justify-center">
                     <span className="text-white text-2xl mb-2 text-left">{title}</span>
-                    {subtitle ? <a className='text-white font-normal text-sm'>See more info about Runtime</a> : null}
+                    {subtitle ? <Link className='text-white font-normal text-sm'>See more info about Runtime</Link> : null}
                 </div>
                 <div className="flex justify-end">
                     <img src="/imgs/cta.svg" alt="CTA" />

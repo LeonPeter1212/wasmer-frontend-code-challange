@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import { motion, useAnimate, stagger, usePresence, AnimatePresence } from "framer-motion";
 import { Typography } from 'antd';
 
-const {Text} = Typography;
+const { Text } = Typography;
 
 const imgs: string[] = [
     {
@@ -124,7 +124,7 @@ const LogoSlider = ({ rtl = false, initialSlide = 0, speed = 1500, labeled = fal
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 0, // Speed at which the slider moves
-        pauseOnHover: true,
+        pauseOnHover: false,
         rtl,
         initialSlide,
     };
@@ -149,8 +149,8 @@ const LogoSlider = ({ rtl = false, initialSlide = 0, speed = 1500, labeled = fal
                 <div ref={scope}>
                     <Slider {...settings}>
                         {imgs.map((img, index) => (
-                            <motion.div key={index} className="animated-logos h-full w-full">
-                                <div className="shadow rounded-lg flex items-center justify-start flex-nowrap gap-0 mx-2 h-full w-full overflow-hidden">
+                            <motion.div key={index} className="animated-logos h-full w-full my-2">
+                                <div className={`shadow rounded-lg flex items-center ${labeled ? `justify-start` : `justify-center`} flex-nowrap gap-0 mx-0 h-full overflow-hidden`}>
                                     <motion.img
                                         src={img.value}
                                         alt="Logo"
@@ -158,9 +158,13 @@ const LogoSlider = ({ rtl = false, initialSlide = 0, speed = 1500, labeled = fal
                                         whileHover={{ scale: 1.1 }}
                                     />
                                     {!labeled ? null : <motion.div className='flex-1'>
-                                        <Text ellipsis={true} style={{
-                                            maxWidth: '70px',
-                                        }} className="text-center text-black text-sm m-0">
+                                        <Text
+                                            // ellipsis={true}
+                                            // style={{
+                                            //     maxWidth: '70px',
+                                            // }}
+                                            className="text-center text-black text-sm m-0 break-keep pr-2"
+                                        >
                                             {img.label}
                                         </Text>
                                     </motion.div>}

@@ -1,10 +1,8 @@
 import { NextPage } from 'next';
-import { Typography, Image, Avatar, Divider } from 'antd';
+import { Typography } from 'antd';
 import CustomHeader from '../components/CustomHeader';
 import * as Icon from "react-feather";
-import SmallCard from '../components/Card/small'
-import { PrimaryButton } from '../components/Buttons';
-import { SearchInput } from '../components/Inputs';
+import Link from 'next/link';
 
 const { Title } = Typography;
 
@@ -56,9 +54,9 @@ const Home: NextPage = () => {
               <div className="absolute left-0 z-10 mt-2 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button">
                 <div className="py-1" role="none">
                   {/* <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --> */}
-                  <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" id="menu-item-0">Account settings</a>
-                  <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" id="menu-item-1">Support</a>
-                  <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" id="menu-item-2">License</a>
+                  <Link href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" id="menu-item-0">Account settings</Link>
+                  <Link href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" id="menu-item-1">Support</Link>
+                  <Link href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" id="menu-item-2">License</Link>
                   <form method="POST" action="#" role="none">
                     <button type="submit" className="text-gray-700 block w-full px-4 py-2 text-left text-sm" role="menuitem" id="menu-item-3">Sign out</button>
                   </form>

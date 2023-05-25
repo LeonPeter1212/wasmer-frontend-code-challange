@@ -31,14 +31,14 @@ export const HeroSlider: NextPage = () => {
             <div className="icons-section">
                 <div className="grid grid-cols-2">
                     <div className="col-span-1">
-                        <Slider labeled={true} rtl={true} speed={4000} />
-                        <Slider labeled={true} rtl={true} speed={4500} initialSlide={9} />
-                        <Slider labeled={true} rtl={true} speed={5000} initialSlide={18} />
+                        <Slider slidesToShow={7} labeled={true} rtl={true} speed={4000} />
+                        <Slider slidesToShow={7} labeled={true} rtl={true} speed={4500} initialSlide={9} />
+                        <Slider slidesToShow={7} labeled={true} rtl={true} speed={5000} initialSlide={18} />
                     </div>
                     <div className="col-span-1">
-                        <Slider slidesToShow={8} rtl={false} speed={4500} />
-                        <Slider slidesToShow={8} rtl={false} speed={5000} initialSlide={9} />
-                        <Slider slidesToShow={8} rtl={false} speed={5500} initialSlide={18} />
+                        <Slider slidesToShow={10} rtl={false} speed={4500} />
+                        <Slider slidesToShow={10} rtl={false} speed={5500} initialSlide={9} />
+                        <Slider slidesToShow={10} rtl={false} speed={6500} initialSlide={18} />
                     </div>
                 </div>
             </div>

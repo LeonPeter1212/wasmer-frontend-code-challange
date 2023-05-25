@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { NextPage } from 'next';
-import { Typography, Image, Avatar, Divider } from 'antd';
+import { Typography, Spin } from 'antd';
 import CustomHeader from '../components/CustomHeader';
 import * as Icon from "react-feather";
 import LargeCard from '../components/Card/large'
@@ -42,6 +42,15 @@ const Home: NextPage = () => {
       enterAnimation();
     }
   }, [isPresent]);
+
+  if (!isPresent) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen w-screen">
+        <Spin />
+      </div>
+    )
+  
+  }
 
   return (
     <AnimatePresence>

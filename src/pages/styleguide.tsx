@@ -34,7 +34,7 @@ const Home: NextPage = () => {
 
           <section>
             <h2 className="text-xl font-semibold mb-4">Fonts</h2>
-            <p>The font family used throughout the styles is "Gilroy", with a fallback to sans-serif.</p>
+            <p>The font family used throughout the styles is Gilroy, with a fallback to sans-serif.</p>
           </section>
 
           <section>
@@ -54,7 +54,7 @@ const Home: NextPage = () => {
 
           <section>
             <h2 className="text-xl font-semibold mb-4">Buttons</h2>
-            <p>Buttons have the "Gilroy" font, a semi-bold weight, and various custom styles such as primary, secondary, and tertiary.</p>
+            <p>Buttons have the Gilroy font, a semi-bold weight, and various custom styles such as primary, secondary, and tertiary.</p>
           </section>
 
           <section>

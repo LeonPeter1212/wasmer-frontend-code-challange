@@ -3,6 +3,7 @@ import { Typography, Image, Avatar, Divider } from 'antd';
 import CustomHeader from '../components/CustomHeader';
 import { EditorComponent, TerminalComponent } from '../components/CodeEditor';
 import SmallCard from '../components/Card/small'
+import Link from 'next/link';
 
 const { Title } = Typography;
 
@@ -115,7 +116,7 @@ const Home: NextPage = () => {
             <span className="text-purple font-semibold">Inline link</span>
           </div>
           <div className="col-span-12 md:col-span-10">
-            <a href="#">Inline link</a>
+            <Link href="#">Inline link</Link>
           </div>
 
           <div className="col-span-12 md:col-span-2">
