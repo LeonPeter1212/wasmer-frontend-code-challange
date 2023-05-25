@@ -5,7 +5,20 @@ import { Typography } from 'antd';
 
 const { Text } = Typography;
 
-const imgs: string[] = [
+interface Logo {
+    label: string | null;
+    value: string;
+}
+
+interface LogoSliderProps {
+    rtl?: boolean;
+    initialSlide?: number;
+    speed?: number;
+    labeled?: boolean;
+    slidesToShow?: number;
+}
+
+const imgs: Logo[] = [
     {
         label: "SpiderMonkey",
         value: "/imgs/logos/logo1.svg"
@@ -112,9 +125,9 @@ const imgs: string[] = [
     },
 ];
 
-const LogoSlider = ({ rtl = false, initialSlide = 0, speed = 1500, labeled = false, slidesToShow = 5 }) => {
-    const [scope, animate] = useAnimate()
-    const [isPresent] = usePresence()
+const LogoSlider: React.FC<LogoSliderProps> = ({ rtl = false, initialSlide = 0, speed = 1500, labeled = false, slidesToShow = 5 }) => {
+    const [scope, animate] = useAnimate();
+    const [isPresent] = usePresence();
 
     const settings = {
         dots: false,
@@ -135,13 +148,12 @@ const LogoSlider = ({ rtl = false, initialSlide = 0, speed = 1500, labeled = fal
                 await animate(
                     "img",
                     { opacity: [0, 1] },
-                    { duration: .2, delay: stagger() }
-                )
-            }
-            enterAnimation()
-
+                    { duration: 0.2, delay: stagger() }
+                );
+            };
+            enterAnimation();
         }
-    }, [isPresent])
+    }, [isPresent]);
 
     return (
         <AnimatePresence>
@@ -157,18 +169,15 @@ const LogoSlider = ({ rtl = false, initialSlide = 0, speed = 1500, labeled = fal
                                         width={`50px`}
                                         whileHover={{ scale: 1.1 }}
                                     />
-                                    {!labeled ? null : <motion.div className='flex-1'>
-                                        <Text
-                                            // ellipsis={true}
-                                            // style={{
-                                            //     maxWidth: '70px',
-                                            // }}
-                                            className="text-center text-black text-sm m-0 break-keep pr-2"
-                                        >
-                                            {img.label}
-                                        </Text>
-                                    </motion.div>}
-
+                                    {!labeled ? null : (
+                                        <motion.div className='flex-1'>
+                                            <Text
+                                                className="text-center text-black text-sm m-0 break-keep pr-2"
+                                            >
+                                                {img.label}
+                                            </Text>
+                                        </motion.div>
+                                    )}
                                 </div>
                             </motion.div>
                         ))}
