@@ -192,7 +192,7 @@ ol {
 }
 
 .custom-search .ant-input {
-    padding: 9px 16px;
+    padding: 9px;
 }
 
 .custom-search .ant-input,
@@ -384,6 +384,20 @@ code {
     min-height: 65vh;
 }
 
+.flyout-primary .bg-wasmer-dark a {
+    color: white;
+    @apply rounded-lg;
+    border: 1px solid transparent;
+    transition: all 300ms;
+}
+
+.flyout-primary .bg-wasmer-dark a:hover {
+    /* @apply px-2 py-1; */
+    text-decoration: underline;
+    color: #fff !important;
+    /* background-color: white; */
+}
+
 .bg-wasmer-dark {
     background-color: #0F0518;
     color: white;
@@ -440,6 +454,26 @@ code {
     color: #02C372;
 }
 
-.header .menu-items>a {
-    /* @apply text-gray-500; */
+.header {
+    border-bottom: 1px solid #DADBE0;
 }
+
+.header .menu-items a:hover, .flyout-secondary a:active {
+    color: black !important;
+}
+
+.flyout-primary {
+    display: none;
+    left: -192px;
+    transition: display 300ms;
+}
+
+.flyout-secondary {
+    width: calc(100vw - 2rem);
+}
+
+.header .menu-items a:hover .flyout-primary {
+    transition: display 300ms;
+    display: block;
+}
+

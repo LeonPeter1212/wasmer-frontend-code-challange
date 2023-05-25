@@ -20,7 +20,14 @@ const Home: NextPage = () => {
             <span className="text-black font-semibold">Desktop (Not logged in)</span>
           </div>
           <div className="col-span-12 md:col-span-10">
-            <Header  />
+            <Header />
+          </div>
+
+          <div className="col-span-12 md:col-span-2">
+            <span className="text-black font-semibold">Desktop (Logged in)</span>
+          </div>
+          <div className="col-span-12 md:col-span-10">
+            <Header loggedIn={true} />
           </div>
         </div>
       </div>

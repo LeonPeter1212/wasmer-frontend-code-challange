@@ -13,6 +13,7 @@ import { PrimaryButton } from '../components/Buttons';
 import HomeSlider from "../components/Carousel/home";
 import Footer from "../components/Footer";
 import { motion, useAnimate, stagger, usePresence, AnimatePresence, useInView } from "framer-motion";
+import Head from 'next/head';
 
 const logos = [
   "/imgs/logos/white/logo1.svg",
@@ -45,7 +46,7 @@ const Home: NextPage = () => {
 
   if (!isPresent) {
     return (
-      <div className="flex flex-col items-center justify-center h-screen w-screen">
+      <div className="flex flex-col items-center justify-center h-screen w-screen z-100">
         <Spin />
       </div>
     )
@@ -54,6 +55,10 @@ const Home: NextPage = () => {
 
   return (
     <AnimatePresence>
+      <Head>
+        <title>Wasmer | Frontend Challange | Homepage.</title>
+      </Head>
+
       <div ref={scope}>
         <Header />
 

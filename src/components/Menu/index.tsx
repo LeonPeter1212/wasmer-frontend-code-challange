@@ -2,275 +2,436 @@ import * as Icon from "react-feather";
 import Link from "next/link";
 import { PrimaryButton } from '../Buttons';
 import { SearchInput } from '../Inputs';
+import { Divider } from "antd";
+import { useState } from "react";
+import { useRouter } from 'next/router';
+interface MenuItem {
+    label: string;
+    submenu?: JSX.Element | null;
+    icon?: JSX.Element | null;
+    url?: string | null;
+    info?: string | JSX.Element | null;
+    href?: string;
+}
 
-export const Flyout = () => {
+interface FlyoutProps {
+    submenu: MenuItem[] | null;
+}
+
+interface FlyoutWithColsProps {
+    submenu: {
+        col1?: MenuItem[];
+        col2?: MenuItem[];
+    };
+}
+
+interface MenuBottomSectionProps {
+    bothsections?: boolean;
+    className?: string;
+}
+
+interface FlyoutMobileProps {
+    hidden: boolean;
+    menuItems: MenuItem[];
+}
+
+interface HeaderProps {
+    loggedIn?: boolean;
+}
+
+const productsChildren = [
+    {
+        label: "Runtime",
+        info: "Run any code anywhere",
+        icon: <img src="/imgs/runtime.svg" alt="Runtime" />,
+        url: "javascript:void(0);"
+    },
+    {
+        label: "Registry",
+        info: "Create, publish, collaborate",
+        icon: <img src="/imgs/registry.svg" alt="Registry" />,
+        url: "javascript:void(0);"
+    },
+    {
+        label: "Stack",
+        info: "Deploy above the clouds",
+        icon: <img src="/imgs/stack.svg" alt="Stack" />,
+        url: "javascript:void(0);"
+    },
+]
+
+const devsChildren = {
+    col1: [
+        {
+            label: "Get started",
+            info: null,
+            icon: null,
+            url: null
+        },
+        {
+            label: "Runtime",
+            info: null,
+            icon: null,
+            url: "javascript:void(0);"
+        },
+        {
+            label: "Registry",
+            info: null,
+            icon: null,
+            url: "javascript:void(0);"
+        },
+        {
+            label: "Edge",
+            info: null,
+            icon: null,
+            url: "javascript:void(0);"
+        },
+    ],
+    col2: [
+        {
+            label: "Get started",
+            info: null,
+            icon: null,
+            url: null
+        },
+        {
+            label: "Run a package",
+            info: null,
+            icon: null,
+            url: "javascript:void(0);"
+        },
+        {
+            label: "Publish a package",
+            info: null,
+            icon: null,
+            url: "javascript:void(0);"
+        },
+        {
+            label: "Deploy your website",
+            info: null,
+            icon: null,
+            url: "javascript:void(0);"
+        },
+    ]
+}
+
+export const Flyout: React.FC<FlyoutProps> = ({ submenu }) => {
     return (
-        <div className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
+        <div className="flyout-primary absolute right-0 top-full z-10 mt-0 w-screen max-w-sm overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
             <div className="p-4">
-                <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-                    <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <svg className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
-                        </svg>
-                    </div>
-                    <div className="flex-auto">
-                        <Link href="#" className="block font-semibold text-gray-900">
-                            Analytics
-                            <span className="absolute inset-0"></span>
-                        </Link>
-                        <p className="mt-1 text-gray-600">Get a better understanding of your traffic</p>
-                    </div>
-                </div>
-                <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-                    <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <svg className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
-                        </svg>
-                    </div>
-                    <div className="flex-auto">
-                        <Link href="#" className="block font-semibold text-gray-900">
-                            Engagement
-                            <span className="absolute inset-0"></span>
-                        </Link>
-                        <p className="mt-1 text-gray-600">Speak directly to your customers</p>
-                    </div>
-                </div>
-                <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-                    <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <svg className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
-                        </svg>
-                    </div>
-                    <div className="flex-auto">
-                        <Link href="#" className="block font-semibold text-gray-900">
-                            Security
-                            <span className="absolute inset-0"></span>
-                        </Link>
-                        <p className="mt-1 text-gray-600">Your customers’ data will be safe and secure</p>
-                    </div>
-                </div>
-                <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-                    <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <svg className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v2.25A2.25 2.25 0 006 10.5zm0 9.75h2.25A2.25 2.25 0 0010.5 18v-2.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25V18A2.25 2.25 0 006 20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z" />
-                        </svg>
-                    </div>
-                    <div className="flex-auto">
-                        <Link href="#" className="block font-semibold text-gray-900">
-                            Integrations
-                            <span className="absolute inset-0"></span>
-                        </Link>
-                        <p className="mt-1 text-gray-600">Connect with third-party tools</p>
-                    </div>
-                </div>
-                <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
-                    <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <svg className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-                        </svg>
-                    </div>
-                    <div className="flex-auto">
-                        <Link href="#" className="block font-semibold text-gray-900">
-                            Automations
-                            <span className="absolute inset-0"></span>
-                        </Link>
-                        <p className="mt-1 text-gray-600">Build strategic funnels that will convert</p>
-                    </div>
-                </div>
-            </div>
-            <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                <Link href="#" className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100">
-                    <svg className="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fillRule="evenodd" d="M2 10a8 8 0 1116 0 8 8 0 01-16 0zm6.39-2.908a.75.75 0 01.766.027l3.5 2.25a.75.75 0 010 1.262l-3.5 2.25A.75.75 0 018 12.25v-4.5a.75.75 0 01.39-.658z" clipRule="evenodd" />
-                    </svg>
-                    Watch demo
-                </Link>
-                <Link href="#" className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100">
-                    <svg className="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012.43 8.326 13.019 13.019 0 012 5V3.5z" clipRule="evenodd" />
-                    </svg>
-                    Contact sales
-                </Link>
+                {submenu?.map((item, index) => {
+                    return (
+                        <div key={index} className="group relative flex items-center gap-x-6 rounded-lg px-4 py-1 text-sm leading-6 hover:bg-gray-50">
+                            {item.icon ? <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                {item.icon}
+                            </div> : null}
+                            <div className="flex-auto">
+                                {item.url == null ? <span className="font-semibold text-gray-500">{item.label}</span> :
+                                    <Link href={item.url} className="block font-semibold text-gray-900">
+                                        {item.label}
+                                        <span className="absolute inset-0"></span>
+                                    </Link>
+                                }
+                                {item.info ? <p className="mt-1 text-gray-600">{item.info}</p> : null}
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
         </div>
-  )
-}
-
-export const FlyoutMobile = () => {
-    return (
-        <div className="hidden" role="dialog" aria-modal="true">
-            <div className="fixed inset-0 z-10"></div>
-            <div className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                <div className="flex items-center justify-between">
-                    <Link href="#" className="-m-1.5 p-1.5">
-                        <img className="h-8 w-auto" src="/imgs/logo.svg" alt="" />
-                    </Link>
-                    <button type="button" className="-m-2.5 rounded-md p-2.5 text-gray-700">
-                        <span className="sr-only">Close menu</span>
-                        <Icon.X size={26} />
-                    </button>
-                </div>
-                <div className="mt-6 flow-root">
-                    <div className="-my-6 divide-y divide-gray-500/10">
-                        <div className="space-y-2 py-6">
-                            <SearchInput placeholder="Search packages, users or apps" />
-                            <div className="-mx-3">
-                                <button type="button" className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" aria-controls="disclosure-1" aria-expanded="false">
-                                    Products
-                                    <Icon.ChevronDown size={22} />
-                                </button>
-                                <div className="mt-2 space-y-2" id="disclosure-1">
-                                    <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Analytics</Link>
-                                    <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Engagement</Link>
-                                    <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Security</Link>
-                                    <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Integrations</Link>
-                                    <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Automations</Link>
-                                    <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Watch demo</Link>
-                                    <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact sales</Link>
-                                </div>
-                            </div>
-                            <Link href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</Link>
-                            <Link href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</Link>
-                            <Link href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</Link>
-                        </div>
-                        <div className="py-6">
-                            <Link href="#" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-  )
-}
-export const Header2 = ({ loggedIn = false }) => {
-    return (
-        <header className="bg-white">
-            <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <div className="flex">
-                    <Link href="#" className="-m-1.5 p-1.5">
-                        <img className="h-8 w-auto" src="/imgs/logo.svg" alt="" />
-                    </Link>
-                </div>
-                <div className="flex lg:hidden">
-                    <button type="button" className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-                        <span className="sr-only">Open main menu</span>
-                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                        </svg>
-                    </button>
-                </div>
-
-                <div className="hidden lg:flex lg:flex-1 gap-2 justify-center px-2">
-                    <SearchInput placeholder="Search packages, users or apps" />
-                </div>
-
-                <div className={`hidden lg:flex lg:gap-x-12`}>
-                    <div className="relative">
-                        <button type="button" className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900" aria-expanded="false">
-                            Products
-                            <svg className="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
-                            </svg>
-                        </button>
-
-                        {/* <!--
-                    'Product' flyout menu, show/hide based on flyout menu state.
-
-                    Entering: "transition ease-out duration-200"
-                    From: "opacity-0 translate-y-1"
-                    To: "opacity-100 translate-y-0"
-                    Leaving: "transition ease-in duration-150"
-                    From: "opacity-100 translate-y-0"
-                    To: "opacity-0 translate-y-1"
-        --> */}
-                        <Flyout />
-                    </div>
-
-                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">Developers</Link>
-                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">Packages</Link>
-                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">Blog</Link>
-                </div>
-                {loggedIn ? null : <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-2">
-                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                        <div className="flex items-center">
-                            Log in <Icon.ChevronRight className="ml-1" size={16} />
-                        </div>
-                    </Link>
-                    <PrimaryButton text="Sign up" size={`middle`} />
-                </div>}
-            </nav>
-            {/* <!-- Mobile menu, show/hide based on menu open state. --> */}
-            {/* <div className="lg:hidden" role="dialog" aria-modal="true"> */}
-            <div className="hidden" role="dialog" aria-modal="true">
-                {/* <!-- Background backdrop, show/hide based on slide-over state. --> */}
-                <div className="fixed inset-0 z-10"></div>
-                <div className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                    <div className="flex items-center justify-between">
-                        <Link href="#" className="-m-1.5 p-1.5">
-                            <img className="h-8 w-auto" src="/imgs/logo.svg" alt="" />
-                        </Link>
-                        <button type="button" className="-m-2.5 rounded-md p-2.5 text-gray-700">
-                            <span className="sr-only">Close menu</span>
-                            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div className="mt-6 flow-root">
-                        <div className="-my-6 divide-y divide-gray-500/10">
-                            <div className="space-y-2 py-6">
-                                <div className="-mx-3">
-                                    <button type="button" className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" aria-controls="disclosure-1" aria-expanded="false">
-                                        Products
-                                        {/* <!--
-                            Expand/collapse icon, toggle classes based on menu open state.
-
-                            Open: "rotate-180", Closed: ""
-                --> */}
-                                        <svg className="h-5 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
-                                        </svg>
-                                    </button>
-                                    {/* <!-- 'Product' sub-menu, show/hide based on menu state. --> */}
-                                    <div className="mt-2 space-y-2" id="disclosure-1">
-                                        <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Analytics</Link>
-                                        <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Engagement</Link>
-                                        <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Security</Link>
-                                        <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Integrations</Link>
-                                        <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Automations</Link>
-                                        <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Watch demo</Link>
-                                        <Link href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact sales</Link>
-                                    </div>
-                                </div>
-                                <Link href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</Link>
-                                <Link href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</Link>
-                                <Link href="#" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</Link>
-                            </div>
-                            <div className="py-6">
-                                <Link href="#" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
     )
 }
 
-export const Header = ({loggedIn = false}) => {
+const FlyoutSecondary: React.FC<FlyoutProps> = ({ submenu }) => {
     return (
-        <header className="header bg-white">
-            <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+        <div className="p-0">
+            {submenu?.map((item, index) => {
+                return (
+                    <div key={index} className="group relative flex items-center gap-x-6 rounded-lg px-0 py-1 text-sm leading-6 hover:bg-gray-50">
+                        {item.icon ? <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                            {item.icon}
+                        </div> : null}
+                        <div className="flex-auto">
+                            {item.url == null ? <span className="font-semibold text-gray-500">{item.label}</span> :
+                                <Link href={item.url} className="block font-semibold text-gray-900">
+                                    {item.label}
+                                    <span className="absolute inset-0"></span>
+                                </Link>
+                            }
+                            {item.info ? <p className="mt-1 text-gray-600">{item.info}</p> : null}
+                        </div>
+                    </div>
+                )
+            })}
+        </div>
+    )
+}
+
+const MenuBottomSection: React.FC<MenuBottomSectionProps> = ({ bothsections = true, className = "" }) => (
+    <>
+        <div className={`col-span-12 ${className}`}>
+            <Divider className="mb-4 mt-0" />
+            <Link href={`#`} className="flex items-center">
+                <img src="/imgs/cli.svg" width="20px" className="mr-2" />
+                <span className="mr-1 text-black">CLI</span>
+            </Link>
+            <Divider className="mt-4 mb-0" />
+        </div>
+
+        {bothsections ? <div className={`col-span-12 ${className}`}>
+            <p className="text-gray-500 mb-1">Tools</p>
+            <Link href={`#`} className="text-sm font-semibold">Visual Studio Code Extension</Link>
+        </div> : null}
+    </>
+)
+
+export const FlyoutWithCols: React.FC<FlyoutWithColsProps> = ({ submenu }) => {
+    return (
+        <div className="flyout-primary absolute right-0 top-full z-10 mt-0 w-screen max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-gray-900/5">
+            <div className="p-4">
+                <div className="grid grid-cols-12 gap-4">
+                    <Link href={`/documentation`} className="col-span-12 flex items-center px-4">
+                        <img src="/imgs/book.svg" width="20px" className="mr-2" />
+                        <span className="mr-1">Documentation</span>
+                        <img src="/imgs/arrowupright.svg" width="6px" className="mr-2" />
+                    </Link>
+                    <div className="col-span-12 lg:col-span-4">
+                        {submenu?.col1?.map((item, index) => {
+                            return (
+                                <div key={index} className="group relative flex items-center gap-x-6 rounded-lg px-4 py-1 text-sm leading-6 hover:bg-gray-50">
+                                    {item.icon ? <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                        {item.icon}
+                                    </div> : null}
+                                    <div className="flex-auto">
+                                        {item.url == null ? <span className="font-semibold text-gray-500">{item.label}</span> :
+                                            <Link href={item.url} className="block font-semibold text-gray-900">
+                                                {item.label}
+                                                <span className="absolute inset-0"></span>
+                                            </Link>
+                                        }
+                                        {item.info ? <p className="mt-1 text-gray-600">{item.info}</p> : null}
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <div className="col-span-12 lg:col-span-8">
+                        {submenu?.col2?.map((item, index) => {
+                            return (
+                                <div key={index} className="group relative flex items-center gap-x-6 rounded-lg px-4 py-1 text-sm leading-6 hover:bg-gray-50">
+                                    {item.icon ? <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                        {item.icon}
+                                    </div> : null}
+                                    <div className="flex-auto">
+                                        {item.url == null ? <span className="font-semibold text-gray-500">{item.label}</span> :
+                                            <Link href={item.url} className="block font-semibold text-gray-900">
+                                                {item.label}
+                                                <span className="absolute inset-0"></span>
+                                            </Link>
+                                        }
+                                        {item.info ? <p className="mt-1 text-gray-600">{item.info}</p> : null}
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+
+                    <MenuBottomSection className="px-4" />
+                </div>
+
+            </div>
+
+            <div className="bg-wasmer-dark rounded-lg p-4 m-1">
+                <p className="text-gray-500 mb-1">SDK’S</p>
+
+                <div className="flex items-center justify-between font-medium">
+                    <Link href="#">Python</Link>
+                    <Link href="#">Rust</Link>
+                    <Link href="#">Go</Link>
+                    <Link href="#">C</Link>
+                    <Link href="#">Rust</Link>
+                    <Link href="#">Docker</Link>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export const FlyoutWithColsSecondary: React.FC<FlyoutWithColsProps> = ({ submenu }) => {
+    return (
+        <>
+            <div className="p-0">
+                <div className="grid grid-cols-12 gap-4">
+                    <div className="col-span-12 lg:col-span-4">
+                        {submenu?.col1?.map((item, index) => {
+                            return (
+                                <div key={index} className="group relative flex items-center gap-x-6 rounded-lg px-0 py-1 text-sm leading-6 hover:bg-gray-50">
+                                    {item.icon ? <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                        {item.icon}
+                                    </div> : null}
+                                    <div className="flex-auto">
+                                        {item.url == null ? <span className="font-semibold text-gray-500">{item.label}</span> :
+                                            <Link href={item.url} className="block font-semibold text-gray-900">
+                                                {item.label}
+                                                <span className="absolute inset-0"></span>
+                                            </Link>
+                                        }
+                                        {item.info ? <p className="mt-1 text-gray-600">{item.info}</p> : null}
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <div className="col-span-12 lg:col-span-8">
+                        {submenu?.col2?.map((item, index) => {
+                            return (
+                                <div key={index} className="group relative flex items-center gap-x-6 rounded-lg px-0 py-1 text-sm leading-6 hover:bg-gray-50">
+                                    {item.icon ? <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                        {item.icon}
+                                    </div> : null}
+                                    <div className="flex-auto">
+                                        {item.url == null ? <span className="font-semibold text-gray-500">{item.label}</span> :
+                                            <Link href={item.url} className="block font-semibold text-gray-900">
+                                                {item.label}
+                                                <span className="absolute inset-0"></span>
+                                            </Link>
+                                        }
+                                        {item.info ? <p className="mt-1 text-gray-600">{item.info}</p> : null}
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+
+            </div>
+        </>
+    )
+}
+
+export const FlyoutMobile: React.FC<FlyoutMobileProps> = ({ hidden }) => {
+    const router = useRouter();
+
+    const menuItems: MenuItem[] = [
+        {
+            label: "Products",
+            href: "javascript:void(0)",
+            submenu: <FlyoutSecondary submenu={productsChildren} />
+        },
+        {
+            label: "Developers",
+            href: "javascript:void(0)",
+            submenu: <FlyoutWithColsSecondary submenu={devsChildren} />
+        },
+        {
+            label: "Packages",
+            href: "javascript:void(0)",
+            submenu: null
+        },
+        {
+            label: "Blog",
+            href: "javascript:void(0)",
+            submenu: null
+        },
+    ]
+
+    const [selectedMenuItem, setselectedMenuItem] = useState<MenuItem | null>(null)
+
+    const handleMenuItemClick = (item:MenuItem) => {
+        setselectedMenuItem(item);
+
+    }
+
+    return (
+        <div hidden={hidden} className="flyout-secondary absolute right-0 top-full z-10 mt-0 w-11/12 max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-gray-900/5">
+            <div className="p-4">
+                <div className="grid grid-cols-12 gap-4 text-left">
+                    {selectedMenuItem === null ? (
+                        <>
+                            <div className="col-span-12 lg:hidden">
+                                <SearchInput
+                                    nopadding={true}
+                                    placeholder="Search packages, users or apps"
+                                />
+                            </div>
+
+                            {menuItems?.map((item, index) => (
+                                <div className="col-span-12" key={index}>
+                                    <Link href="#" className="text-sm font-semibold leading-6 relative" onClick={() => {
+                                        item.submenu ? handleMenuItemClick(item) : item.href && router.push(item.href)
+                                    }}>
+                                        {item.label}
+                                    </Link>
+                                </div>
+                            ))}
+
+                            <MenuBottomSection />
+                        </>
+                    ) : (<div className="col-span-12">
+                        <Link href={`javascript:void(0)`} onClick={() => setselectedMenuItem(null)} className="text-sm font-semibold leading-6 flex items-center">
+                            <img src="/imgs/chevronleft.svg" width="6px" className="mr-2" />
+                            {selectedMenuItem.label}
+                        </Link>
+
+                        <Divider className="my-3" />
+
+                        {selectedMenuItem.submenu}
+                    </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export const Header: React.FC<HeaderProps> = ({ loggedIn = false }) => {
+    const [mobileMenuClicked, setmobileMenuClicked] = useState(true)
+
+    const toggleMenu = () => {
+        setmobileMenuClicked(!mobileMenuClicked)
+    }
+
+    const menuItems = [
+        {
+            label: "Products",
+            href: "javascript:void(0)",
+            submenu: <Flyout submenu={productsChildren} />
+        },
+        {
+            label: "Developers",
+            href: "javascript:void(0)",
+            submenu: <FlyoutWithCols submenu={devsChildren} />
+        },
+        {
+            label: "Packages",
+            href: "javascript:void(0)",
+            submenu: null
+        },
+        {
+            label: "Blog",
+            href: "javascript:void(0)",
+            submenu: null
+        },
+    ]
+
+    return (
+        <header className="header bg-transparent">
+            <nav className="container flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex">
                     <Link href="/" className="-m-1.5 p-1.5">
                         <img className="h-8 w-auto" src="/imgs/logo.svg" alt="" />
                     </Link>
                 </div>
-                <div className="flex lg:hidden">
-                    <button type="button" className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-                        <Icon.Menu size={20} />
+                <div className="flex items-center justify-end gap-4 lg:hidden">
+                    <PrimaryButton text="Sign up" size={`middle`} iconstat={false} />
+                    <button type="button" className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 relative">
+                        <div onClick={toggleMenu}>
+                            {mobileMenuClicked ? <Icon.Menu size={20} /> : <Icon.X size={20} />}
+                        </div>
+
+                        <FlyoutMobile hidden={mobileMenuClicked} menuItems={menuItems} />
                     </button>
+
                 </div>
 
                 <div className="hidden lg:flex lg:flex-1 gap-2 justify-center px-2">
@@ -278,19 +439,32 @@ export const Header = ({loggedIn = false}) => {
                 </div>
 
                 <div className="hidden lg:flex lg:flex-1 gap-8 justify-end px-8 menu-items">
-                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-500">Products</Link>
-                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-500">Developers</Link>
-                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-500">Packages</Link>
-                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-500">Blog</Link>
+                    {menuItems?.map((item, index) => (
+                        <Link href="#" className="text-sm font-semibold leading-6 text-gray-500 relative" key={`${index}_${item.label}`}>
+                            {item.label}
+                            {item.submenu ? item.submenu : null}
+                        </Link>
+                    ))}
                 </div>
-                {loggedIn ? null : <div className="hidden lg:flex lg:justify-end items-center gap-8">
-                    <PrimaryButton text="Sign up" size={`middle`} iconstat={false} />
-                </div>}
+                {loggedIn ?
+                    <div className="hidden lg:flex lg:justify-end items-center gap-8">
+                        <Link href={`#`}>
+                        <img src="/imgs/notifications.svg" width="20px" alt="Notifications" />
+                        </Link>
+
+                        <Link href={`#`}>
+                        <img src="/imgs/avatar2.svg" alt="Avatar" className="rounded-full" width="20px" />
+                        </Link>
+                    </div> :
+                    <div className="hidden lg:flex lg:justify-end items-center gap-8">
+                        <PrimaryButton text="Sign up" size={`middle`} iconstat={false} />
+                    </div>
+                }
             </nav>
 
             {/* Mobile menu */}
             {/* <FlyoutMobile /> */}
         </header>
 
-  )
+    )
 }

@@ -1,5 +1,7 @@
 import React from 'next';
 import { Typography, Divider } from 'antd';
+import Link from 'next/link';
+import * as Icon from "react-feather"
 
 const { Title, Text } = Typography;
 
@@ -16,6 +18,7 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({ title = 'Title', subtitle =
       <Divider className="m-0" />
 
       <div className="container">
+        <div className="flex items-center justify-between">
         <div className="components-header flex gap-4 items-center">
           {icon ? <div className="w-16 h-16 bg-gray flex items-center justify-center rounded-full">
             <img src="/imgs/diamond.svg" className="blue" alt="Diamond" />
@@ -26,6 +29,9 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({ title = 'Title', subtitle =
             {/* {subtitle === null ? <Text className="text-purple text-lg font-medium">{subtitle}</Text> : null} */}
             <Text className="text-purple text-lg font-medium">{subtitle}</Text>
           </div>
+        </div>
+
+          <Link href="/documentation#components" className='flex items-center gap-2'><Icon.ChevronLeft /> Back to Documentation</Link>
         </div>
 
       </div>

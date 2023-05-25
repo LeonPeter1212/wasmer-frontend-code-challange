@@ -56,7 +56,7 @@ const Footer = () => {
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Developers</h2>
                             <ul className="text-gray-600 dark:text-gray-400 font-medium list-none">
                                 <li>
-                                    <Link href="#" className="hover:underline">Documentation</Link>
+                                    <Link href="/documentation" className="hover:underline">Documentation</Link>
                                 </li>
                                 <li>
                                     <Link href="#" className="hover:underline">Runtime</Link>

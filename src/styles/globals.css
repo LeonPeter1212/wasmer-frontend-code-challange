@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 a {
-  color: #605DE9;
+  color: #0F0518;
   text-decoration: none;
   cursor: pointer;
 }
 
-a:hover {
+/* a:hover {
   color: white;
-}
+} */
 
 * {
   box-sizing: border-box;
