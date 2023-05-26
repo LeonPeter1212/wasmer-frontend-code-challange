@@ -165,7 +165,7 @@ const LogoSlider: React.FC<LogoSliderProps> = ({ rtl = false, initialSlide = 0, 
                             <motion.div
                                 key={index}
                                 className="animated-logos h-full w-full my-4"
-                                whileHover={{ scale: 1.05 }}
+                                whileHover={{ scale: 1.01 }}
                             >
                                 <div className={`shadow rounded-xl flex items-center ${labeled ? `justify-start` : `justify-center`} flex-nowrap gap-0 mx-0 h-full overflow-hidden bg-custom-white`}>
                                     <motion.img
