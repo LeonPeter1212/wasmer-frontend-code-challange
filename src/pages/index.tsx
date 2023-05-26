@@ -37,7 +37,7 @@ const Home: NextPage = () => {
           ".box-blur",
           { opacity: [0, 1] },
           { duration: 0.6, delay: stagger() },
-         );
+        );
       };
 
       enterAnimation();
@@ -50,7 +50,7 @@ const Home: NextPage = () => {
         <Spin />
       </div>
     )
-  
+
   }
 
   return (
@@ -65,22 +65,22 @@ const Home: NextPage = () => {
         <HeroSlider />
 
         <div className="container">
-          <div className="flex flex-col items-center justify-center gap-4 text-center font-semibold text-3xl text-black max-w-3xl mx-auto pt-10">
-            <div className='m-0 cta'>
+          <div className="flex flex-col items-center justify-center gap-4 text-center font-semibold text-3xl text-black max-w-4xl mx-auto pt-10 leading-8">
+            <div className='m-0 cta font-48'>
               <span>Create apps that </span>
               <div className="inline-block">
-                <PrimaryButton text="Run" icon={<img src="/imgs/register.png" width="25" />} size="middle" />
+                <PrimaryButton className='margin-custom-10-y' text="Run" icon={<img src="/imgs/runtime.png" width="28" />} size="large" />
               </div>
 
               <span> everywhere. </span>
 
               <div className="inline-block">
-                <PrimaryButton text="Registry" icon={<img src="/imgs/register.png" width="25" />} size="middle" />
+                <PrimaryButton className='margin-custom-10-y' text="Publish" icon={<img src="/imgs/register.png" width="28" />} size="large" />
               </div>
               <span> and share with the community and </span>
 
               <div className="inline-block">
-                <PrimaryButton text="Edge" icon={<img src="/imgs/edge.png" width="25" />} size="middle" />
+                <PrimaryButton className='margin-custom-10-y' text="Deploy" icon={<img src="/imgs/edge.png" width="28" />} size="large" />
               </div>
 
               <span> to the edge, globally.</span>
@@ -92,9 +92,9 @@ const Home: NextPage = () => {
           <div className="z-20 text-center">
             <div className="flex flex-col gap-2 items-center justify-center">
               <img src='/imgs/section.svg' width={`1.4px`} />
-              <PrimaryButton text="Runtime" icon={<img src="/imgs/runtime.png" width="25" />} size="middle" />
+              <PrimaryButton text="Runtime" icon={<img src="/imgs/runtime.png" width="28" />} size="large" iconstat={false} />
 
-              <Title className='mt-4 text-48'>Run the world</Title>
+              <Title className='mt-4 font-48'>Run the world</Title>
               <p className='font-22 max-w-screen-md mx-auto'>Using a binary for each platform and chip is the past. Rise above with lightweight containerized apps that simply run everywhere.</p>
             </div>
           </div>
@@ -115,7 +115,7 @@ const Home: NextPage = () => {
           </div>
 
           <div className="mt-16 text-center">
-            <p className="font-22 max-w-screen-md mx-auto">“This programming tool makes it easier for apps to work anywhere”</p>
+            <p className="font-22 max-w-screen-sm mx-auto">“This programming tool makes it easier for apps to work anywhere”</p>
 
             <img src="/imgs/vercel.svg" className='mx-auto opacity-50' />
           </div>
@@ -125,9 +125,9 @@ const Home: NextPage = () => {
           <div className="container z-20 text-center">
             <div className="flex flex-col gap-2 items-center justify-center">
               <img src='/imgs/section.svg' width={`1.4px`} />
-              <PrimaryButton text="Registry" icon={<img src="/imgs/register.png" width="25" />} size="middle" />
+              <PrimaryButton text="Registry" icon={<img src="/imgs/register.png" width="28" />} size="large" iconstat={false} />
 
-              <Title className='mt-4 text-48'>Better together</Title>
+              <Title className='mt-4 font-48'>Better together</Title>
               <p className="font-22 max-w-screen-md mx-auto">Packages are limited by their languages no more. Collaborate across stacks, leverage all and contribute your own.</p>
             </div>
           </div>
@@ -157,9 +157,9 @@ const Home: NextPage = () => {
           <div className="z-20 text-center">
             <div className="flex flex-col gap-2 items-center justify-center">
               <img src='/imgs/section.svg' width={`1.4px`} />
-              <PrimaryButton text="Edge" icon={<img src="/imgs/edge.png" width="25" />} size="middle" />
+              <PrimaryButton text="Edge" icon={<img src="/imgs/edge.png" width="28" />} size="large" iconstat={false} />
 
-              <Title className='mt-4 text-48'>Above the clouds</Title>
+              <Title className='mt-4 font-48'>Above the clouds</Title>
               <p className="font-22 max-w-screen-md mx-auto">Get the scalability of serverless and the reusability of cloud. Deploy to the edge, save your users time and yourself money. </p>
             </div>
           </div>
@@ -168,7 +168,7 @@ const Home: NextPage = () => {
 
           <div className="box-blur box-blur3 max-w-4xl m-auto text-center">
 
-            <div className="flex items-center justify-center gap-4 mt-8 mb-4">
+            <div className="font-22 flex items-center justify-center gap-4 mb-8">
 
               <div className="flex items-center gap-4 justify-content">
                 <img src="/imgs/tone.svg" />
@@ -194,20 +194,12 @@ const Home: NextPage = () => {
         </div>
 
         <div className="container">
-          <div className=" py-10 text-center">
-            <div className="flex flex-col gap-2 items-center justify-center">
-              <p className='mt-4 font-22 font-semibold text-black'>We are trusted by the best</p>
-              <p className="font-22 max-w-screen-md mx-auto">“This programming tool makes it easier for apps to work anywhere”</p>
 
-              <img src="/imgs/vercel.svg" className='mx-auto opacity-50' />
-            </div>
-          </div>
-
-          <div className="max-w-4xl m-auto text-left pt-12 pb-20">
+          <div className="max-w-6xl m-auto text-left pt-12 pb-20">
             <div className="blur-effect z-10">
               <LargeCTA
-                title="Get started"
-                subtitle='Join the vibrant Wasmer community. Create your fist package, run it from the shell and deploy it to the Edge'
+                title={<span className="font-48">Get started</span>}
+                subtitle={<span className='font-22 text-custom-white opacity-70'>Join the vibrant Wasmer community. Create your fist package, run it from the shell and deploy it to the Edge</span>}
               />
 
             </div>

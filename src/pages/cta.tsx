@@ -20,7 +20,7 @@ const Home: NextPage = () => {
             <span className="text-purple font-semibold">Large CTA</span>
           </div>
           <div className="col-span-12 md:col-span-10">
-            <div className="pt-4 md:p-8 bg-black text-white rounded-lg overflow-hidden">
+            <div className="pt-4 md:p-8 bg-black text-white rounded-xl overflow-hidden">
               <Title level={3} className="text-white">Get Started</Title>
               <p>Join the vibrant Wasmer community. Create your fist package, run it from the shell and deploy it to the Edge</p>
               <div className="flex justify-end">
@@ -34,7 +34,7 @@ const Home: NextPage = () => {
             <span className="text-purple font-semibold">Mid CTA</span>
           </div>
           <div className="col-span-12 md:col-span-10">
-            <div className="pt-4 md:p-8 bg-black text-white rounded-lg">
+            <div className="pt-4 md:p-8 bg-black text-white rounded-xl">
               <div className="flex">
                 <div className="flex-1 flex items-center">
                   <span className="text-white text-2xl">Truly universal. Runs anywhere. Fast as native, 0ms startup times</span>

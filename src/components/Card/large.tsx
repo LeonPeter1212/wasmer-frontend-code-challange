@@ -12,7 +12,7 @@ const LargeCard: React.FC<LargeCardProps> = ({ title = "Title", extra = true, co
     return (
         <Card
             title={title}
-            className='card h-full'
+            className='card h-full hide-extra'
             extra={extra ? extraHTML : null}
         >
             {content}

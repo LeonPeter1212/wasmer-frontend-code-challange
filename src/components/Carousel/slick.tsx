@@ -131,6 +131,7 @@ const LogoSlider: React.FC<LogoSliderProps> = ({ rtl = false, initialSlide = 0, 
 
     const settings = {
         dots: false,
+        arrows: false,
         infinite: true,
         speed,
         slidesToShow, // Number of items to display at a time
@@ -161,18 +162,22 @@ const LogoSlider: React.FC<LogoSliderProps> = ({ rtl = false, initialSlide = 0, 
                 <div ref={scope}>
                     <Slider {...settings}>
                         {imgs.map((img, index) => (
-                            <motion.div key={index} className="animated-logos h-full w-full my-2">
-                                <div className={`shadow rounded-lg flex items-center ${labeled ? `justify-start` : `justify-center`} flex-nowrap gap-0 mx-0 h-full overflow-hidden`}>
+                            <motion.div
+                                key={index}
+                                className="animated-logos h-full w-full my-4"
+                                whileHover={{ scale: 1.05 }}
+                            >
+                                <div className={`shadow rounded-xl flex items-center ${labeled ? `justify-start` : `justify-center`} flex-nowrap gap-0 mx-0 h-full overflow-hidden bg-custom-white`}>
                                     <motion.img
                                         src={img.value}
                                         alt="Logo"
-                                        width={`50px`}
-                                        whileHover={{ scale: 1.1 }}
+                                        width={`65px`}
+                                        className={labeled ? 'image-border' : ""}
                                     />
                                     {!labeled ? null : (
                                         <motion.div className='flex-1'>
                                             <Text
-                                                className="text-center text-black text-sm m-0 break-keep pr-2"
+                                                className="text-center text-black text-sm m-0 break-keep px-4"
                                             >
                                                 {img.label}
                                             </Text>

@@ -19,7 +19,7 @@ const Home: NextPage = () => {
           <div className="col-span-12 md:col-span-7">
             <div className="grid grid-cols-12 gap-4">
               <div className="col-span-12">
-                <div className="bg-white border border-gray-300 rounded-lg">
+                <div className="bg-white border border-gray-300 rounded-xl">
                   <EditorTabsetComponent title={null} extra={false} />
 
                   <div className="p-4 md:p-8">
@@ -36,10 +36,10 @@ const Home: NextPage = () => {
                       </div>
 
                       <div className="flex-item flex flex-nowrap items-center gap-2">
-                        <img 
-                        src="/imgs/terminal.png" 
-                        // className="block" 
-                        width={`50px`}
+                        <img
+                          src="/imgs/terminal.png"
+                          // className="block" 
+                          width={`50px`}
                         />
                         <span className="text-gray-900">...or run</span>
                       </div>
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
               </div>
 
               <div className="col-span-12 md:col-span-8">
-                <div className="bg-white border border-gray-300 rounded-lg">
+                <div className="bg-white border border-gray-300 rounded-xl">
                   <EditorTabsetComponent title={null} extra={false} />
 
                   <div className="p-4 md:p-8">
@@ -66,10 +66,10 @@ const Home: NextPage = () => {
                       </div>
 
                       <div className="flex-item flex flex-nowrap items-center gap-2">
-                        <img 
-                        src="/imgs/terminal.png" 
-                        // className="block" 
-                        width={`50px`}
+                        <img
+                          src="/imgs/terminal.png"
+                          // className="block" 
+                          width={`50px`}
                         />
                         <span className="text-gray-900">...or run</span>
                       </div>
@@ -80,7 +80,7 @@ const Home: NextPage = () => {
 
               <div className="col-span-12 md:col-span-4"></div>
               <div className="col-span-12 md:col-span-6">
-                <div className="bg-white border border-gray-300 rounded-lg">
+                <div className="bg-white border border-gray-300 rounded-xl">
                   <EditorTabsetComponent title={null} extra={false} />
 
                   <div className="p-4 md:p-8">
@@ -89,14 +89,14 @@ const Home: NextPage = () => {
                         width={`50px`}
                       />
 
-                        <img
+                      <img
                         src="/imgs/terminal.png"
                         // className="block" 
                         width={`50px`}
                       />
                     </div>
                     <div className="flex items-center gap-4 flex-nowrap mt-4">
-                        <span className='text-gray-900 flex-1 font-semibold'>Embed packages of all languages. <span className="text-gray-500">Feature the might of all languages in your app.</span></span>
+                      <span className='text-gray-900 flex-1 font-semibold'>Embed packages of all languages. <span className="text-gray-500">Feature the might of all languages in your app.</span></span>
                     </div>
                   </div>
                 </div>
@@ -113,7 +113,7 @@ const Home: NextPage = () => {
           <div className="col-span-12 md:col-span-7">
             <div className="grid grid-cols-12 gap-4">
               <div className="col-span-12">
-                <div className="bg-wasmer-dark border border-gray-300 rounded-lg">
+                <div className="bg-wasmer-dark border border-gray-300 rounded-xl">
 
                   <EditorTabsetComponentWithOpts title={null} extra={false} />
                 </div>

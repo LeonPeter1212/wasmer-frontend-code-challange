@@ -11,7 +11,9 @@ const LogoSlider = ({ rtl = false, initialSlide = 0, speed = 1500 }) => {
         dots: false,
         arrows: false,
         infinite: true,
-        speed: 500,
+        speed,
+        initialSlide,
+        rtl,
         slidesToShow: 3, // Number of items to display at a time
         slidesToScroll: 1,
         autoplay: true,
@@ -77,7 +79,7 @@ return (
                                 <div className="flex items-center gap-4">
                                     <img src="/imgs/mozila.svg" alt="icon" />
 
-                                    <div className="flex gap-2 items-center">
+                                    <div className="flex gap-2 items-center font-22">
                                         <span className="font-semibold">mozilla</span>
                                         <span className="text-gray-500">/</span>
                                         <span className="font-semibold">spidermonkey</span>
@@ -93,7 +95,7 @@ return (
                                 <div className="flex items-center gap-4">
                                     <img src="/imgs/logos/logo3.svg" alt="icon" />
 
-                                    <div className="flex gap-2 items-center">
+                                    <div className="flex gap-2 items-center font-22">
                                         <span className="font-semibold">sqlite</span>
                                         <span className="text-gray-500">/</span>
                                         <span className="font-semibold">sqlite</span>
@@ -109,7 +111,7 @@ return (
                                 <div className="flex items-center gap-4">
                                     <img src="/imgs/logos/logo11.svg" alt="icon" />
 
-                                    <div className="flex gap-2 items-center">
+                                    <div className="flex gap-2 items-center font-22">
                                         <span className="font-semibold">syrusakbary</span>
                                         <span className="text-gray-500">/</span>
                                         <span className="font-semibold">r2</span>
@@ -117,6 +119,22 @@ return (
                                 </div>
                             }
                             content="cowsay is a program that generates ASCII pictures of a cow with a message"
+                        />
+                    </div>
+                    <div className="px-4 h-full">
+                        <CustomCard
+                            title={
+                                <div className="flex items-center gap-4">
+                                    <img src="/imgs/logos/logo3.svg" alt="icon" />
+
+                                    <div className="flex gap-2 items-center font-22">
+                                        <span className="font-semibold">sqlite</span>
+                                        <span className="text-gray-500">/</span>
+                                        <span className="font-semibold">sqlite</span>
+                                    </div>
+                                </div>
+                            }
+                            content="SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine"
                         />
                     </div>
                 </Slider>

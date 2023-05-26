@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PrimaryButton } from '../Buttons';
 import { SearchInput } from '../Inputs';
 import { Divider } from "antd";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from 'next/router';
 interface MenuItem {
     label: string;
@@ -121,8 +121,8 @@ export const Flyout: React.FC<FlyoutProps> = ({ submenu }) => {
             <div className="p-4">
                 {submenu?.map((item, index) => {
                     return (
-                        <div key={index} className="group relative flex items-center gap-x-6 rounded-lg px-4 py-1 text-sm leading-6 hover:bg-gray-50">
-                            {item.icon ? <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                        <div key={index} className="group relative flex items-center gap-x-6 rounded-xl px-4 py-1 text-sm leading-6 hover:bg-gray-50">
+                            {item.icon ? <div className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-gray-50 group-hover:bg-white">
                                 {item.icon}
                             </div> : null}
                             <div className="flex-auto">
@@ -147,8 +147,8 @@ const FlyoutSecondary: React.FC<FlyoutProps> = ({ submenu }) => {
         <div className="p-0">
             {submenu?.map((item, index) => {
                 return (
-                    <div key={index} className="group relative flex items-center gap-x-6 rounded-lg px-0 py-1 text-sm leading-6 hover:bg-gray-50">
-                        {item.icon ? <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                    <div key={index} className="group relative flex items-center gap-x-6 rounded-xl px-0 py-1 text-sm leading-6 hover:bg-gray-50">
+                        {item.icon ? <div className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-gray-50 group-hover:bg-white">
                             {item.icon}
                         </div> : null}
                         <div className="flex-auto">
@@ -187,7 +187,7 @@ const MenuBottomSection: React.FC<MenuBottomSectionProps> = ({ bothsections = tr
 
 export const FlyoutWithCols: React.FC<FlyoutWithColsProps> = ({ submenu }) => {
     return (
-        <div className="flyout-primary absolute right-0 top-full z-10 mt-0 w-screen max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-gray-900/5">
+        <div className="flyout-primary absolute right-0 top-full z-10 mt-0 w-screen max-w-sm overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-gray-900/5">
             <div className="p-4">
                 <div className="grid grid-cols-12 gap-4">
                     <Link href={`/documentation`} className="col-span-12 flex items-center px-4">
@@ -198,8 +198,8 @@ export const FlyoutWithCols: React.FC<FlyoutWithColsProps> = ({ submenu }) => {
                     <div className="col-span-12 lg:col-span-4">
                         {submenu?.col1?.map((item, index) => {
                             return (
-                                <div key={index} className="group relative flex items-center gap-x-6 rounded-lg px-4 py-1 text-sm leading-6 hover:bg-gray-50">
-                                    {item.icon ? <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                <div key={index} className="group relative flex items-center gap-x-6 rounded-xl px-4 py-1 text-sm leading-6 hover:bg-gray-50">
+                                    {item.icon ? <div className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-gray-50 group-hover:bg-white">
                                         {item.icon}
                                     </div> : null}
                                     <div className="flex-auto">
@@ -218,8 +218,8 @@ export const FlyoutWithCols: React.FC<FlyoutWithColsProps> = ({ submenu }) => {
                     <div className="col-span-12 lg:col-span-8">
                         {submenu?.col2?.map((item, index) => {
                             return (
-                                <div key={index} className="group relative flex items-center gap-x-6 rounded-lg px-4 py-1 text-sm leading-6 hover:bg-gray-50">
-                                    {item.icon ? <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                <div key={index} className="group relative flex items-center gap-x-6 rounded-xl px-4 py-1 text-sm leading-6 hover:bg-gray-50">
+                                    {item.icon ? <div className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-gray-50 group-hover:bg-white">
                                         {item.icon}
                                     </div> : null}
                                     <div className="flex-auto">
@@ -241,7 +241,7 @@ export const FlyoutWithCols: React.FC<FlyoutWithColsProps> = ({ submenu }) => {
 
             </div>
 
-            <div className="bg-wasmer-dark rounded-lg p-4 m-1">
+            <div className="bg-wasmer-dark rounded-xl p-4 m-1">
                 <p className="text-gray-500 mb-1">SDK’S</p>
 
                 <div className="flex items-center justify-between font-medium">
@@ -265,8 +265,8 @@ export const FlyoutWithColsSecondary: React.FC<FlyoutWithColsProps> = ({ submenu
                     <div className="col-span-12 lg:col-span-4">
                         {submenu?.col1?.map((item, index) => {
                             return (
-                                <div key={index} className="group relative flex items-center gap-x-6 rounded-lg px-0 py-1 text-sm leading-6 hover:bg-gray-50">
-                                    {item.icon ? <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                <div key={index} className="group relative flex items-center gap-x-6 rounded-xl px-0 py-1 text-sm leading-6 hover:bg-gray-50">
+                                    {item.icon ? <div className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-gray-50 group-hover:bg-white">
                                         {item.icon}
                                     </div> : null}
                                     <div className="flex-auto">
@@ -285,8 +285,8 @@ export const FlyoutWithColsSecondary: React.FC<FlyoutWithColsProps> = ({ submenu
                     <div className="col-span-12 lg:col-span-8">
                         {submenu?.col2?.map((item, index) => {
                             return (
-                                <div key={index} className="group relative flex items-center gap-x-6 rounded-lg px-0 py-1 text-sm leading-6 hover:bg-gray-50">
-                                    {item.icon ? <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                <div key={index} className="group relative flex items-center gap-x-6 rounded-xl px-0 py-1 text-sm leading-6 hover:bg-gray-50">
+                                    {item.icon ? <div className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-gray-50 group-hover:bg-white">
                                         {item.icon}
                                     </div> : null}
                                     <div className="flex-auto">
@@ -337,13 +337,13 @@ export const FlyoutMobile: React.FC<FlyoutMobileProps> = ({ hidden }) => {
 
     const [selectedMenuItem, setselectedMenuItem] = useState<MenuItem | null>(null)
 
-    const handleMenuItemClick = (item:MenuItem) => {
+    const handleMenuItemClick = (item: MenuItem) => {
         setselectedMenuItem(item);
 
     }
 
     return (
-        <div hidden={hidden} className="flyout-secondary absolute right-0 top-full z-10 mt-0 w-11/12 max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-gray-900/5">
+        <div hidden={hidden} className="flyout-secondary absolute right-0 top-full z-10 mt-0 w-11/12 max-w-sm overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-gray-900/5">
             <div className="p-4">
                 <div className="grid grid-cols-12 gap-4 text-left">
                     {selectedMenuItem === null ? (
@@ -386,6 +386,7 @@ export const FlyoutMobile: React.FC<FlyoutMobileProps> = ({ hidden }) => {
 
 export const Header: React.FC<HeaderProps> = ({ loggedIn = false }) => {
     const [mobileMenuClicked, setmobileMenuClicked] = useState(true)
+    const headerRef = useRef<HTMLElement | null>(null);
 
     const toggleMenu = () => {
         setmobileMenuClicked(!mobileMenuClicked)
@@ -414,8 +415,29 @@ export const Header: React.FC<HeaderProps> = ({ loggedIn = false }) => {
         },
     ]
 
+    useEffect(() => {
+        if (headerRef.current) {
+            const header = headerRef.current;
+            const sticky = header.offsetTop;
+
+            const scrollHandler = () => {
+                if (window.pageYOffset > sticky) {
+                    header.classList.add("scrolled");
+                } else {
+                    header.classList.remove("scrolled");
+                }
+            };
+
+            window.addEventListener("scroll", scrollHandler);
+
+            return () => {
+                window.removeEventListener("scroll", scrollHandler);
+            };
+        }
+    }, []);
+
     return (
-        <header className="header bg-transparent">
+        <header ref={headerRef} className="header bg-transparent">
             <nav className="container flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex">
                     <Link href="/" className="-m-1.5 p-1.5">
@@ -440,7 +462,7 @@ export const Header: React.FC<HeaderProps> = ({ loggedIn = false }) => {
 
                 <div className="hidden lg:flex lg:flex-1 gap-8 justify-end px-8 menu-items">
                     {menuItems?.map((item, index) => (
-                        <Link href="#" className="text-sm font-semibold leading-6 text-gray-500 relative" key={`${index}_${item.label}`}>
+                        <Link href="#" className="text-base font-semibold leading-6 text-gray-500 relative" key={`${index}_${item.label}`}>
                             {item.label}
                             {item.submenu ? item.submenu : null}
                         </Link>
@@ -449,11 +471,11 @@ export const Header: React.FC<HeaderProps> = ({ loggedIn = false }) => {
                 {loggedIn ?
                     <div className="hidden lg:flex lg:justify-end items-center gap-8">
                         <Link href={`#`}>
-                        <img src="/imgs/notifications.svg" width="20px" alt="Notifications" />
+                            <img src="/imgs/notifications.svg" width="20px" alt="Notifications" />
                         </Link>
 
                         <Link href={`#`}>
-                        <img src="/imgs/avatar2.svg" alt="Avatar" className="rounded-full" width="20px" />
+                            <img src="/imgs/avatar2.svg" alt="Avatar" className="rounded-full" width="20px" />
                         </Link>
                     </div> :
                     <div className="hidden lg:flex lg:justify-end items-center gap-8">

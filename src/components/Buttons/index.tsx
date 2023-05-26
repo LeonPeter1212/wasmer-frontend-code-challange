@@ -3,7 +3,7 @@ import { Button, Divider } from 'antd';
 import { ArrowUpRight, Play } from 'react-feather';
 
 interface ButtonProps {
-    text?: string;
+    text?: React.ReactNode | string;
     iconstat?: boolean;
     size?: any;
     className?: string;
@@ -24,7 +24,7 @@ export const PrimaryButton: React.FC<ButtonProps> = ({
             icon={icon}
         >
             <span>{text}</span>
-            {iconstat ? <ArrowUpRight size={16} /> : null}
+            {iconstat ? <img src='/imgs/arrowuprightlight.svg' width={size === 'large' ? 12 : 10} className='ml-1' /> : null}
         </Button>
     );
 };
@@ -81,7 +81,7 @@ export const IconOnlyButton: React.FC<ButtonProps> = ({
 };
 
 export const GithubButton: React.FC<ButtonProps> = ({
-    text = '15,000',
+    text = <span className='font-semibold tracking-normal'>15,000</span>,
     size = "large",
     className = "",
 }) => {
@@ -91,7 +91,7 @@ export const GithubButton: React.FC<ButtonProps> = ({
             className={`custom-btn-secondary flex items-center justify-center gap-2 ${className}`}
         >
             <span>{text}</span>
-            <img src="/imgs/star.svg" alt="Star" width="18" />
+            <img src="/imgs/star.svg" alt="Star" width="24" />
             <Divider type="vertical"  />
             <img src="/imgs/githublink.svg" alt="Star" width="30" />
         </Button>
