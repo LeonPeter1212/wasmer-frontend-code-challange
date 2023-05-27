@@ -138,7 +138,7 @@ const LogoSlider: React.FC<LogoSliderProps> = ({ rtl = false, initialSlide = 0, 
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 0, // Speed at which the slider moves
-        pauseOnHover: false,
+        pauseOnHover: true,
         rtl,
         initialSlide,
     };
